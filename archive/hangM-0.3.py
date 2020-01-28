@@ -10,7 +10,7 @@ def print_hangman(counter):
     return
 
 
-#pelin pääfunktio
+#pelin pääfunktio:
 def main_game():
 #pelin valmistelevat asiat aluksi
 #haetaan kaikki sanat sanakirja-tiedostosta
