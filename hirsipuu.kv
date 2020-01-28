@@ -1,0 +1,77 @@
+<Hangman>
+    #game's main screen attributes
+    sana: arvattava
+    kirjain: arvaukset
+    arvaus: give_guess
+    tulos: tulos
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        padding: 5
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.7, 0.2, 1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+#divide main screen in two
+        GridLayout:
+            cols: 2
+
+#games menu on the left side of screen
+
+            BoxLayout:
+                id:'game_menu'
+                orientation: 'vertical'
+                size_hint: 0.3, 1
+                Button:
+                    text: 'Aloita peli'
+                    on_press: root.game()
+                Button:
+                    text: 'Aloita alusta'
+                    on_press: root.game2()
+                Button:
+                    text: 'Lopeta peli'
+                    on_press: root.lopeta()
+                Label:
+                    text: 'Anna arvaus:'
+                TextInput:
+                    id: give_guess
+                    multiline: False
+                Button:
+                    text: 'Pelaa arvaus'
+                    on_press: root.play()
+
+#games main window of hangman and the word to be guessed and the already guessed letters
+
+            GridLayout:
+                rows:3
+                Image:
+                    id: tulos
+                    source: 'Hang10.png'
+
+
+
+                Label:
+                    id: arvattava
+                    size_hint: 1, 0.2
+                    canvas.before:
+                        Color:
+                            rgba: 0.3, 0.3, 0.3, 1
+                        Rectangle:
+                            pos:self.pos
+                            size:self.size
+                    text: 'arvattava sana'
+                Label:
+                    id: arvaukset
+                    size_hint: 1, 0.2
+                    canvas.before:
+                        Color:
+                            rgba: 0.2, 0.2, 0.2, 1
+                        Rectangle:
+                            pos:self.pos
+                            size:self.size
+                    text: 'Arvatut kirjaimet:'
+
